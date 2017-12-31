@@ -1,4 +1,4 @@
-import com.kata.tdd.model.FrequentFlyer;
+import com.kata.tdd.domain.FrequentFlyer;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(JUnitParamsRunner.class)
-public class EarningShould {
+public class EarningEnoughPointsShould {
 
     private FrequentFlyer member;
 
@@ -20,7 +20,7 @@ public class EarningShould {
             "John, Doe, Silver, 0, 700, Gold",
             "John, Doe, Gold, 0, 1500, Platinum"
     })
-    public void calculateStatus(String firstName, String lastName, String status, int points, int earned, String expected) {
+    public void upgradeStatus(String firstName, String lastName, String status, int points, int earned, String expected) {
         member = FrequentFlyerBuilder
                 .aMember()
                 .named(firstName,lastName)
@@ -28,6 +28,6 @@ public class EarningShould {
                 .andPoints(points)
                 .earned(earned)
                 .build();
-        assertThat(member.getStatus(), is(expected));
+        assertThat(member.calculateNewStatus(), is(expected));
     }
 }

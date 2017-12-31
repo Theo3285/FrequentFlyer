@@ -1,4 +1,4 @@
-import com.kata.tdd.model.FrequentFlyer;
+import com.kata.tdd.domain.FrequentFlyer;
 
 public class FrequentFlyerBuilder {
     private FrequentFlyer member;
